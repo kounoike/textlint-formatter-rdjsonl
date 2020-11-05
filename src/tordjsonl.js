@@ -12,7 +12,7 @@ function toReviewDogDiagnostic(results) {
         r.messages.forEach((m) => {
             const severity = severities[m.severity];
             let result = {
-                message: m.message,
+                message: `${m.message} [${m.ruleId}]`,
                 severity: severity,
                 location: {
                     path: filePath,
@@ -26,9 +26,9 @@ function toReviewDogDiagnostic(results) {
                     {
                         range: {
                             start: {line: m.line, column: m.column},
-                            end: {line: m.line, column: m.column + (m.fix.range[1] - m.fix.range[0])},
-                            text: m.fix.text
-                        }
+                            end: {line: m.line, column: m.column + (m.fix.range[1] - m.fix.range[0])}
+                        },
+                        text: m.fix.text
                     }
                 ]
             }
