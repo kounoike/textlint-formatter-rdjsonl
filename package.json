@@ -1,0 +1,53 @@
+{
+  "name": "@kounoike/textlint-formatter-rdjsonl",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kounoike/textlint-formatter-rdjsonl.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kounoike/textlint-formatter-rdjsonl/issues"
+  },
+  "homepage": "https://github.com/kounoike/textlint-formatter-rdjsonl",
+  "version": "0.0.3",
+  "description": "A Reviewdog Diagnostic Format (rdjsonl) textlint-formatter",
+  "main": "lib/rdjsonl.js",
+  "scripts": {
+    "build": "babel src --out-dir lib --source-maps",
+    "watch": "babel src --out-dir lib --watch --source-maps",
+    "prepublish": "npm run --if-present build",
+    "test": "mocha",
+    "coverage": "textlint -f `pwd`/lib/textlint-formatter-codecov.js example/README.md",
+    "travis:codecov": "textlint -f `pwd`/lib/textlint-formatter-codecov.js example/README.md | codecov"
+  },
+  "files": [
+    "lib",
+    "src"
+  ],
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "keywords": [
+    "textlint",
+    "formatter"
+  ],
+  "author": "KOUNOIKE Yuusuke",
+  "email": "kounoike.yuusuke@gmail.com",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-add-module-exports": "^1.0.4",
+    "babel-preset-es2015": "^6.24.1",
+    "espower-babel": "^4.0.3",
+    "textlint": "^11.7.6",
+    "textlint-formatter": "^3.0.2",
+    "textlint-rule-no-todo": "^2.0.1"
+  },
+  "dependencies": {
+    "lodash.groupby": "^4.6.0",
+    "lodash.range": "^3.2.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
